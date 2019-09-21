@@ -1,0 +1,12 @@
+coreutils
+findutils
+git
+wget
+bash
+bash-completion
+gnutar
+grep
+gawk
+gsed
+pdfgrep
+pdftk
