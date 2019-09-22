@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#set -Eeo pipefail
+
+# git dotfile management
+# https://www.atlassian.com/git/tutorials/dotfiles
+alias git-dotfile='/usr/bin/env git --git-dir="$HOME/._dotfile_repo/" --work-tree="$HOME"'
+
+## PLATFORM SPECIFIC
+case "$(uname -s)" in
+	Darwin*)
+		## MAC OS ALIASES
+
+		# sublime text, if installed
+		_temp_path="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
+		if ! [[ -x "$(command -v subl)" ]] && [[ -e "$_temp_path" ]]; then
+			alias subl="$_temp_path"
+		fi
+
+		# Mathematica, if installed
+		_temp_path="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
+		if [[ -e "$_temp_path" ]]; then
+			alias mathkernel="$_temp_path"
+		fi
+
+		# macOS has no `md5sum`, so use `md5` as a fallback
+		command -v md5sum > /dev/null || alias md5sum="md5"
+
+		# macOS has no `sha1sum`, so use `shasum` as a fallback
+		command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+		unset _temp_path
+		;;
+	Linux*)
+		;;
+	*)
+		echo "Unrecognized platform ${_uname_val}"
+		;;
+esac
