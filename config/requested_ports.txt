@@ -4,6 +4,9 @@ git
 wget
 bash
 bash-completion
+zsh
+zsh-completions
+zsh-templates-osx
 gnutar
 grep
 gawk

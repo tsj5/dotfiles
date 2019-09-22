@@ -50,6 +50,16 @@ xargs sudo port activate < requested_ports.txt
   #   If you want to use the GNU tools by default, add this directory to the
   #   front of your PATH environment variable:
   #       /opt/local/libexec/gnubin/
+    # zsh has the following notes:
+    # To set MacPorts' zsh as default login shell, run:
+
+    #     sudo chpass -s '/opt/local/bin/zsh' $USER
+
+    # To be able to switch default shells to or from zsh without superuser
+    # privileges, add it to /etc/shells:
+
+    #     sudo sh -c 'echo /opt/local/bin/zsh >>/etc/shells'
+
   # gawk has the following notes:
   #   readline support has been removed from gawk. If you need to run gawk
   #   interactively, install rlwrap:
