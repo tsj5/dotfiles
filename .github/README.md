@@ -1,6 +1,11 @@
 # dotfiles
 Configuration for personal use.
 
+## TODO
+- Cross-platform script for symlinking VSCode and sublime text files on Linux.
+- Integrate .aliases, etc. -- tcsh version?
+- Cut out zprezto stuff -- not using it.
+
 ## Links
 - Methodology used here: https://www.atlassian.com/git/tutorials/dotfiles
 - Shell init [reference](https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/) for bash, zsh
