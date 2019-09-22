@@ -1,0 +1,13 @@
+{
+	"color_scheme": "Packages/User/SublimeLinter/base16-eighties.dark (SL).tmTheme",
+	"font_face": "Source Code Pro",
+	"font_size": 14,
+	"ignored_packages":
+	[
+		"Makefile",
+		"Theme - Soda",
+		"Vintage"
+	],
+	"theme": "Spacegray Eighties.sublime-theme",
+	"word_wrap": "false"
+}

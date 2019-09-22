@@ -1,0 +1,24 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"LaTeXing",
+		"Makefile Improved",
+		"MinimalFortran",
+		"Open Folder",
+		"Package Control",
+		"Python 3",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-chktex",
+		"SublimeREPL",
+		"termX",
+		"Theme - Soda",
+		"Theme - Spacegray"
+	]
+}
