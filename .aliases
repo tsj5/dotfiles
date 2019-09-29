@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-#set -Eeo pipefail
-# Script to set aliases for zsh and bash (only)
+# Set aliases for zsh and bash (only)
 
 # git dotfile management
 # https://www.atlassian.com/git/tutorials/dotfiles
