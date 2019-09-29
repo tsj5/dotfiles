@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
 #set -Eeo pipefail
+# Script to set aliases for zsh and bash (only)
 
 # git dotfile management
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias git-dotfile='/usr/bin/env git --git-dir="$HOME/._dotfile_repo/" --work-tree="$HOME"'
 
 ## PLATFORM SPECIFIC
-case "$(uname -s)" in
+_uname_val=$(uname -s)
+case "$_uname_val" in
 	Darwin*)
-		## MAC OS ALIASES
-
 		# sublime text, if installed
 		_temp_path="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
 		if ! [[ -x "$(command -v subl)" ]] && [[ -e "$_temp_path" ]]; then
-			alias subl="$_temp_path"
+			# define as a shell function, since alias can't contain spaces
+			# prefer to do this instead of adding to $PATH
+			subl () { "$_temp_path" "$@"; }
 		fi
 
 		# Mathematica, if installed
