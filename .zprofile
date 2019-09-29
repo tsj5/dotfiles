@@ -1,41 +1,17 @@
-#
 # Executes commands at login pre-zshrc.
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-#
-# Browser
-#
+source_from_bash () {
+	# POSIX compatiability mode to share scripts between zsh and bash.
+	# see https://unix.stackexchange.com/a/3449
+  	emulate -LR sh
+  	. "$@"
+}
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
-
-#
-# Editors
-#
-
-export EDITOR='subl'
-export VISUAL='subl'
-export PAGER='less'
-
-if [[ -z "$TERM" ]]; then
-  export TERM='xterm-256color'
-fi
-
-#
-# Language
-#
-
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
-
-#
-# Paths
-#
+source_from_bash ~/.profile
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
@@ -54,19 +30,14 @@ typeset -gU cdpath fpath mailpath path
 
 # #####################
 
-# nvidia CUDA GPU drivers
-export PATH=/Developer/NVIDIA/CUDA-6.5/bin:$PATH
-export LD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$LD_LIBRARY_PATH
-export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$DYLD_LIBRARY_PATH
-export CUDA_ROOT=/Developer/NVIDIA/CUDA-6.5/
-
-# MacPorts PATH
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/openmpi/bin:$PATH
-
-# Anaconda
-export PATH=/Users/tsj/anaconda/bin:$PATH
-
 ##### unused
+
+# # nvidia CUDA GPU drivers
+# export PATH=/Developer/NVIDIA/CUDA-6.5/bin:$PATH
+# export LD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$LD_LIBRARY_PATH
+# export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-6.5/lib:$DYLD_LIBRARY_PATH
+# export CUDA_ROOT=/Developer/NVIDIA/CUDA-6.5/
+
 # add in /opt/lib so python finds MacPorts version of ALPS library -- copied from the alpspython script
 # export PYTHONPATH=$PYTHONPATH:/opt/local/lib 
 
@@ -90,21 +61,6 @@ export PATH=/Users/tsj/anaconda/bin:$PATH
 # export PATH=/Users/tsj/code/DiagHam/FTI/src/Programs/FCI:/Users/tsj/code/DiagHam/FTI/src/Programs/FTI:$PATH
 
 # #####################
-
-#
-# Less
-#
-
-# Set the default Less options.
-# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-# Remove -X and -F (exit if the content fits on one screen) to enable it.
-export LESS='-F -g -i -M -R -S -w -X -z-4'
-
-# Set the Less input preprocessor.
-if (( $+commands[lesspipe.sh] )); then
-  export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
-fi
-
 #
 # Temporary Files
 #

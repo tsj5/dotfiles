@@ -1,29 +1,16 @@
-#
 # Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
-#
-#zmodload zsh/terminfo
-#if [[ "${terminfo[kcuu1]}" != "" ]]; then
-#    bindkey "${terminfo[kcuu1]}" up-line-or-search
-#    bindkey "${terminfo[kcud1]}" down-line-or-search
-#fi
-
-bindkey -e
+source_from_bash () {
+	# POSIX compatiability mode to share scripts between zsh and bash.
+	# see https://unix.stackexchange.com/a/3449
+  	emulate -LR sh
+  	. "$@"
+}
 
 # # Source Prezto.
 # if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 #   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 # fi
-
-# Customize to your needs...
-
-
-# aliases
-alias mathkernel=/Applications/Mathematica.app/Contents/MacOS/MathKernel
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -40,3 +27,18 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+source_from_bash ~/.aliases
+
+# Load Git completion
+zstyle ':completion:*:*:git:*' script ~/.git-completion.bash
+fpath=(~/.zsh $fpath)
+
+autoload -Uz compinit && compinit
+
+#zmodload zsh/terminfo
+#if [[ "${terminfo[kcuu1]}" != "" ]]; then
+#    bindkey "${terminfo[kcuu1]}" up-line-or-search
+#    bindkey "${terminfo[kcud1]}" down-line-or-search
+#fi
+
+bindkey -e
