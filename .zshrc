@@ -35,7 +35,7 @@ case "$_uname_val" in
 	Darwin*)
 		# https://iterm2.com/documentation-shell-integration.html
 		_temp_path="~/.iterm2_shell_integration.zsh"
-		if [[ -e "$_temp_path" ]]
+		if [[ -e "$_temp_path" ]]; then
 			source "$_temp_path"
 
 			# pass current conda env to iterm2
