@@ -9,10 +9,10 @@ fi
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
 export LESS='-F -g -i -M -R -s -w -X -z-3'
 
-# Set the Less input preprocessor.
-if (( $+commands[lesspipe.sh] )); then
-	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
-fi
+# # Set the Less input preprocessor.
+# if (( $+commands[lesspipe.sh] )); then
+# 	export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
+# fi
 
 ## PLATFORM SPECIFIC
 _uname_val=$(uname -s)
