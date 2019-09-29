@@ -29,11 +29,37 @@ unset __conda_setup
 
 source_from_bash ~/.aliases
 
+## PLATFORM SPECIFIC
+_uname_val=$(uname -s)
+case "$_uname_val" in
+	Darwin*)
+		# https://iterm2.com/documentation-shell-integration.html
+		_temp_path="~/.iterm2_shell_integration.zsh"
+		if [[ -e "$_temp_path" ]]
+			source "$_temp_path"
+
+			# pass current conda env to iterm2
+			# https://www.iterm2.com/documentation-scripting-fundamentals.html#setting-user-defined-variables
+			iterm2_print_user_vars() {
+  				iterm2_set_user_var condaEnv "$CONDA_DEFAULT_ENV"
+			}
+
+		fi
+
+		unset _temp_path
+		;;
+	Linux*)
+		;;
+	*)
+		echo "Unrecognized platform ${_uname_val}"
+		;;
+esac
+
 # Load Git completion
 zstyle ':completion:*:*:git:*' script ~/.git-completion.bash
 fpath=(~/.zsh $fpath)
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit # needed?
 
 #zmodload zsh/terminfo
 #if [[ "${terminfo[kcuu1]}" != "" ]]; then
@@ -42,3 +68,4 @@ autoload -Uz compinit && compinit
 #fi
 
 bindkey -e
+

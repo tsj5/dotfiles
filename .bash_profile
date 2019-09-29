@@ -24,3 +24,28 @@ if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
 fi
 
 source ~/.git-completion.bash
+
+## PLATFORM SPECIFIC
+_uname_val=$(uname -s)
+case "$_uname_val" in
+	Darwin*)
+		# https://iterm2.com/documentation-shell-integration.html
+		_temp_path="~/.iterm2_shell_integration.bash"
+		if [[ -e "$_temp_path" ]]
+			source "$_temp_path"
+
+			# pass current conda env to iterm2
+			# https://www.iterm2.com/documentation-scripting-fundamentals.html#setting-user-defined-variables
+			iterm2_print_user_vars () {
+  				iterm2_set_user_var condaEnv "$CONDA_DEFAULT_ENV"
+			}
+		fi
+
+		unset _temp_path
+		;;
+	Linux*)
+		;;
+	*)
+		echo "Unrecognized platform ${_uname_val}"
+		;;
+esac
