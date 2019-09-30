@@ -6,6 +6,9 @@ source_from_bash () {
   	emulate -LR sh
   	. "$@"
 }
+source_if_exists () {
+	[[ -e "$1" ]] && source "$1"
+}
 
 # # Source Prezto.
 # if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -27,25 +30,23 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-source_from_bash ~/.aliases
 
 ## PLATFORM SPECIFIC
-_uname_val=$(uname -s)
+_uname_val=$( uname -s )
 case "$_uname_val" in
 	Darwin*)
 		# https://iterm2.com/documentation-shell-integration.html
-		_temp_path="~/.iterm2_shell_integration.zsh"
+		_temp_path="${HOME}/.iterm2_shell_integration.zsh"
 		if [[ -e "$_temp_path" ]]; then
 			source "$_temp_path"
 
 			# pass current conda env to iterm2
 			# https://www.iterm2.com/documentation-scripting-fundamentals.html#setting-user-defined-variables
+			# https://www.saulshanabrook.com/conda-environment-in-iterm2-status-bar
 			iterm2_print_user_vars() {
-  				iterm2_set_user_var condaEnv "$CONDA_DEFAULT_ENV"
+  				iterm2_set_user_var condaEnv "${CONDA_DEFAULT_ENV}"
 			}
-
 		fi
-
 		unset _temp_path
 		;;
 	Linux*)
@@ -56,16 +57,21 @@ case "$_uname_val" in
 esac
 
 # Load Git completion
-zstyle ':completion:*:*:git:*' script ~/.git-completion.bash
+zstyle ':completion:*:*:git:*' script "${HOME}/.git-completion.bash"
 fpath=(~/.zsh $fpath)
-
 autoload -Uz compinit && compinit # needed?
+
+source_from_bash "${HOME}/.aliases"
 
 #zmodload zsh/terminfo
 #if [[ "${terminfo[kcuu1]}" != "" ]]; then
 #    bindkey "${terminfo[kcuu1]}" up-line-or-search
 #    bindkey "${terminfo[kcud1]}" down-line-or-search
 #fi
-
 bindkey -e
+
+# https://github.com/zsh-users/zsh-syntax-highlighting
+# included as submodule
+# must be sourced at end of .zshrc
+source_if_exists "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
