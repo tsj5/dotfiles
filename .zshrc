@@ -68,10 +68,16 @@ source_from_bash "${HOME}/.aliases"
 #    bindkey "${terminfo[kcuu1]}" up-line-or-search
 #    bindkey "${terminfo[kcud1]}" down-line-or-search
 #fi
-bindkey -e
+bindkey -e # default to emacs keymap
 
 # https://github.com/zsh-users/zsh-syntax-highlighting
 # included as submodule
 # must be sourced at end of .zshrc
 source_if_exists "${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
+# https://github.com/zsh-users/zsh-history-substring-search
+# included as submodule
+# must be sourced at end of .zshrc, AFTER highlighting
+source_if_exists "${HOME}/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh"
+# https://stackoverflow.com/questions/18042685/list-of-zsh-bindkey-commands
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
