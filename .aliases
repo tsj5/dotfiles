@@ -1,4 +1,5 @@
 # Set aliases for zsh and bash (only)
+# should only source this for interactive shells
 
 # git dotfile management
 # https://www.atlassian.com/git/tutorials/dotfiles
@@ -10,6 +11,11 @@ alias hist_grep='history | grep'
 _uname_val=$( uname -s )
 case "$_uname_val" in
 	Darwin*)
+		# color ls; flags are different on BSD
+		# use colors set by terminal's theme instead of our own
+		alias ls="/bin/ls -bFG"
+		alias la="/bin/ls -abFG"
+
 		# sublime text, if installed
 		_temp_path="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
 		if ! [[ -x "$(command -v subl)" ]] && [[ -e "$_temp_path" ]]; then
