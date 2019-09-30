@@ -36,7 +36,7 @@ _uname_val=$( uname -s )
 case "$_uname_val" in
 	Darwin*)
 		# https://iterm2.com/documentation-shell-integration.html
-		_temp_path="${HOME}/.iterm2_shell_integration.zsh"
+		_temp_path="${ZDOTDIR}/.iterm2_shell_integration.zsh"
 		if [[ -e "$_temp_path" ]]; then
 			source "$_temp_path"
 
@@ -58,7 +58,7 @@ esac
 
 # Load Git completion
 zstyle ':completion:*:*:git:*' script "${HOME}/.git-completion.bash"
-fpath=(~/.zsh $fpath)
+fpath=("${HOME}/.zsh" $fpath)
 autoload -Uz compinit && compinit # needed?
 
 source_from_bash "${HOME}/.aliases"

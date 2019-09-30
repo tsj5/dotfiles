@@ -11,7 +11,8 @@ source_from_bash () {
   	. "$@"
 }
 
-source_from_bash "${HOME}/.profile"
+# done in .zshenv
+# source_from_bash "${HOME}/.profile"
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
