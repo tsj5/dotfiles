@@ -1,10 +1,10 @@
-
+# sourced by interactive non-login bash
+# and by .bash_profile, so it executes for interactive login
 source_if_exists () {
 	[[ -e "$1" ]] && source "$1"
 }
 
 source_if_exists "${HOME}/.profile"    # load generic profile settings
-# source_if_exists "${HOME}/.bashrc"     # load aliases etc.
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
