@@ -4,6 +4,8 @@
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias git-dotfile='/usr/bin/env git --git-dir="$HOME/._dotfile_repo/" --work-tree="$HOME"'
 
+alias hist_grep='history | grep'
+
 ## PLATFORM SPECIFIC
 _uname_val=$( uname -s )
 case "$_uname_val" in
@@ -13,7 +15,9 @@ case "$_uname_val" in
 		if ! [[ -x "$(command -v subl)" ]] && [[ -e "$_temp_path" ]]; then
 			# define as a shell function, since alias can't contain spaces
 			# prefer to do this instead of adding to $PATH
-			subl () { "$_temp_path" "$@"; }
+			eval "subl () { \"${_temp_path}\" \"\$@\"; }"
+			# need to export function?
+			# export -f subl
 		fi
 
 		# Mathematica, if installed
