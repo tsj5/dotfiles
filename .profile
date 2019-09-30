@@ -15,7 +15,7 @@ export LESS='-F -g -i -M -R -s -w -X -z-3'
 # fi
 
 ## PLATFORM SPECIFIC
-_uname_val=$(uname -s)
+_uname_val=$( uname -s )
 case "$_uname_val" in
 	Darwin*)
 		# MacPorts PATH

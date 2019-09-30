@@ -5,7 +5,7 @@
 alias git-dotfile='/usr/bin/env git --git-dir="$HOME/._dotfile_repo/" --work-tree="$HOME"'
 
 ## PLATFORM SPECIFIC
-_uname_val=$(uname -s)
+_uname_val=$( uname -s )
 case "$_uname_val" in
 	Darwin*)
 		# sublime text, if installed
