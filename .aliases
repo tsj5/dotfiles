@@ -7,6 +7,8 @@ alias git-dotfile='/usr/bin/env git --git-dir="$HOME/._dotfile_repo/" --work-tre
 
 alias hist_grep='history | grep'
 
+alias conda_update='conda update -n base conda'
+
 ## PLATFORM SPECIFIC
 _uname_val=$( uname -s )
 case "$_uname_val" in
