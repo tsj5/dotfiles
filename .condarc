@@ -1,0 +1,7 @@
+# https://conda-forge.org/docs/user/tipsandtricks.html
+channel_priority: strict
+channels:
+  - conda-forge
+  - r
+  - defaults
+ssl_verify: true
