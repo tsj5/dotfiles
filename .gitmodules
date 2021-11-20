@@ -4,3 +4,6 @@
 [submodule ".zsh/zsh-history-substring-search"]
 	path = .zsh/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule ".zsh/zsh-abbr-path"]
+	path = .zsh/zsh-abbr-path
+	url = https://github.com/felixgravila/zsh-abbr-path
