@@ -1,4 +1,5 @@
-# Executes commands at the start of an interactive session.
+# Executes commands at the start of an interactive session
+# (login or non-login)
 
 source_from_bash () {
 	# POSIX compatiability mode to share scripts between zsh and bash.
@@ -10,26 +11,20 @@ source_if_exists () {
 	[[ -e "$1" ]] && source "$1"
 }
 
-# # Source Prezto.
-# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-# fi
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/tsj/anaconda2/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/tsj/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/tsj/anaconda2/etc/profile.d/conda.sh" ]; then
-        . "/Users/tsj/anaconda2/etc/profile.d/conda.sh"
+    if [ -f "/Users/tsj/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/tsj/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/tsj/anaconda2/bin:$PATH"
+        export PATH="/Users/tsj/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
 
 ## PLATFORM SPECIFIC
 _uname_val=$( uname -s )
@@ -48,6 +43,10 @@ case "$_uname_val" in
 			}
 		fi
 		unset _temp_path
+
+		# perl local::lib
+		#[ $SHLVL -eq 1 ] && eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
+		source ~/perl5/perlbrew/etc/bashrc
 		;;
 	Linux*)
 		;;
@@ -62,6 +61,19 @@ fpath=("${HOME}/.zsh" $fpath)
 autoload -Uz compinit && compinit # needed?
 
 source_from_bash "${HOME}/.aliases"
+
+# Ensure path arrays do not contain duplicates.
+typeset -gU cdpath fpath mailpath path
+
+setopt PROMPT_SUBST
+# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Visual-effects
+# abbreviated $PWD for prompt
+# or see https://unix.stackexchange.com/questions/273529/shorten-path-in-zsh-prompt
+# locale charmap == UTF-8
+source_if_exists "${HOME}/.zsh/zsh-abbr-path/.abbr_pwd"
+PROMPT=$'%F{black}%K{cyan}%B$(felix_pwd_abbr)%b%k%F{cyan}\UE0B0%f '
+#PROMPT="%F{black}%K{cyan}$(felix_pwd_abbr)\UE0B0%f%k "
+#PROMPT='%{$fg[cyan]%}%c$(felix_pwd_abbr) %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
 
 #zmodload zsh/terminfo
 #if [[ "${terminfo[kcuu1]}" != "" ]]; then

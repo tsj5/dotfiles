@@ -8,14 +8,14 @@ source_if_exists "${HOME}/.profile"    # load generic profile settings
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/tsj/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/tsj/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/tsj/anaconda2/etc/profile.d/conda.sh" ]; then
-        . "/Users/tsj/anaconda2/etc/profile.d/conda.sh"
+    if [ -f "/Users/tsj/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/tsj/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/tsj/anaconda2/bin:$PATH"
+        export PATH="/Users/tsj/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -26,7 +26,7 @@ _uname_val=$( uname -s )
 case "$_uname_val" in
 	Darwin*)
 		# bash-completion port installed through macports
-		source_if_exists /opt/local/etc/profile.d/bash_completion.sh
+		source_if_exists "/opt/local/etc/profile.d/bash_completion.sh"
 
 		# https://iterm2.com/documentation-shell-integration.html
 		_temp_path="${HOME}/.iterm2_shell_integration.bash"

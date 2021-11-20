@@ -5,7 +5,7 @@
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias git-dotfile='/usr/bin/env git --git-dir="$HOME/._dotfile_repo/" --work-tree="$HOME"'
 
-alias hist_grep='history | grep'
+alias hgrep='history | grep'
 
 alias conda_update='conda update -n base conda'
 
@@ -32,6 +32,12 @@ case "$_uname_val" in
 		_temp_path="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 		if [[ -e "$_temp_path" ]]; then
 			alias mathkernel="$_temp_path"
+		fi
+
+		# chrome
+		_temp_path="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+		if [[ -e "$_temp_path" ]]; then
+			alias google-chrome="$_temp_path"
 		fi
 
 		# macOS has no `md5sum`, so use `md5` as a fallback
