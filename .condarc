@@ -5,3 +5,4 @@ channels:
   - r
   - defaults
 ssl_verify: true
+changeps1: false # don't put enivronment in prompt
