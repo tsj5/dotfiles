@@ -1,6 +1,9 @@
 # dotfiles
 Configuration for personal use.
 
+Methodology used here: https://www.atlassian.com/git/tutorials/dotfiles
+Defines a `git-dotfile` shell alias wrapping `git`; repo files are cloned to `~/._dotfile_repo/`.
+
 ## TODO
 - Cross-platform script for symlinking VSCode and sublime text files on Linux.
 
