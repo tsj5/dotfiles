@@ -4,11 +4,51 @@
 [core]
 	excludesfile = /Users/tsj/.gitignore_global
 	editor = nano --ignore --fill=72
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+[fetch]
+	prune = true
+[push]
+	default = simple
+[merge]
+    tool = sublimerge    
+	# tool = meld
+[mergetool]
+    # don't ask if we want to skip merge
+    prompt = false
+    # don't create backup *.orig files
+    keepBackup = false
+[mergetool "sublimerge"]
+    cmd = subl -n --wait \\\"$REMOTE\\\" \\\"$BASE\\\"   \\\"$LOCAL\\\" \\\"$MERGED\\\" --command \\\"sublimerge_diff_views\\\"
+    trustExitCode = false
+[mergetool "meld"]
+	cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+	trustExitCode = true
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
-[commit]
-	template = /Users/tsj/.stCommitMsg
+[diff]
+    tool = sublimerge
+	# tool = meld
+[difftool]
+	prompt = false
+[difftool "sublimerge"]
+    cmd = subl -n --wait \\\"$REMOTE\\\" \\\"$LOCAL\\\" --command \\\"sublimerge_diff_views {\\\\\\\"left_read_only\\\\\\\": true, \\\\\\\"right_read_only\\\\\\\": true}\\\"
+[difftool "meld"]
+	cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[alias]
+	# Nicely formatted log summary
+	glog = !git log --date-order --date=iso --graph --full-history --all --pretty=format:'%x08%x09%C(red)%h %C(cyan)%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08 %C(bold blue)%aN%C(reset)%C(bold yellow)%d %C(reset)%s'
+	# branches in chrono order by last commit
+	brancht = !git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:cyan)%(committerdate:short)%(color:reset) %(color:red)%(refname:short)%(color:reset) - %(contents:subject)'
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
