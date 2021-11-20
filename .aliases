@@ -40,6 +40,18 @@ case "$_uname_val" in
 			alias google-chrome="$_temp_path"
 		fi
 
+		# VS Code
+		_temp_path="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+		if [[ -e "$_temp_path" ]]; then
+			alias vscode="$_temp_path"
+		fi
+
+		# Julia from app
+		_temp_path="/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
+		if [[ -e "$_temp_path" ]]; then
+			alias julia="$_temp_path"
+		fi
+
 		# macOS has no `md5sum`, so use `md5` as a fallback
 		command -v md5sum > /dev/null || alias md5sum="md5"
 
