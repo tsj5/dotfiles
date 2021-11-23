@@ -1,15 +1,180 @@
 {
+    "telemetry.enableTelemetry": false,
+    "security.workspace.trust.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "extensions.showRecommendationsOnlyOnDemand": true,
+    "extensions.ignoreRecommendations": true,
     "workbench.startupEditor": "newUntitledFile",
-    "julia.enableTelemetry": true,
-    "workbench.colorTheme": "Spacegray Eighties Dark",
-    "editor.fontFamily": "Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
-    "[markdown]":{
+    "workbench.colorTheme": "Spacegray Ocean Dark",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "window.titleBarStyle": "custom",
+    "window.title": "${dirty}${rootPath}${separator}${activeEditorShort}${separator}${appName}",
+    "files.trimTrailingWhitespace": true,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Inconsolata-g for Powerline', Menlo, Monaco, 'Courier New', monospace",
+    // "editor.fontWeight": null
+    "editor.fontSize": 13,
+    "editor.rulers": [80],
+    "editor.cursorStyle": "line",
+    "editor.scrollBeyondLastLine": false,
+    "editor.renderWhitespace": "none",
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.codeActionsOnSave": null,
+    "editor.hover.delay": 600,
+    "diffEditor.renderSideBySide": true,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.profiles.osx": {
+        "zsh-login": {
+            "path": "/bin/zsh",
+            "args": ["-l"]
+        }
+    },
+    "terminal.integrated.profiles.linux": {
+        "bash-login": {
+            "path": "/bin/bash",
+            "args": ["-l"]
+        }
+    },
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "remote.SSH.configFile": "/Users/tsj/.ssh/config",
+    "remote.SSH.showLoginTerminal": true,
+    "remote.SSH.logLevel": "trace",
+    "remote.SSH.remotePlatform": {
+        "ldt-4335148": "linux"
+    },
+    "remote.SSH.useLocalServer": false,
+    "remote.SSH.lockfilesInTmp": true,
+    "remote.SSH.connectTimeout": 35,
+        "spellright.notificationClass": "warning",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.codeLens.enabled": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "jupyter.askForKernelRestart": false,
+    "jupyter.alwaysTrustNotebooks": true,
+    "[python]":{
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4,
+        "editor.autoIndent": "advanced"
+    },
+    "python.pythonPath": "${env:CONDA_PYTHON_EXE}",
+    "python.condaPath": "/Users/tsj/anaconda2/bin/conda",
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.showStartPage": false,
+    "perl-toolbox.syntax.includePaths": [
+        "$workspaceRoot",
+        "$workspaceRoot/lib",
+        "$workspaceRoot/local/lib/perl5"
+    ],
+    "perl.perlCmd": "/Users/tsj/perl5/perlbrew/perls/perl-5.28.3/bin/perl",
+    "perl.perlInc": [
+        "$workspaceRoot",
+        "$workspaceRoot/lib",
+        "$workspaceRoot/local/lib/perl5",
+        "/Users/tsj/Documents/climate/workflow/pythonizer",
+        "/Users/tsj/.perlbrew/libs/perl-5.28.3@frepp/lib/perl5/5.28.3/darwin-thread-multi-2level",
+        "/Users/tsj/.perlbrew/libs/perl-5.28.3@frepp/lib/perl5/5.28.3",
+        "/Users/tsj/.perlbrew/libs/perl-5.28.3@frepp/lib/perl5/darwin-thread-multi-2level",
+        "/Users/tsj/.perlbrew/libs/perl-5.28.3@frepp/lib/perl5",
+        "/Users/tsj/perl5/perlbrew/perls/perl-5.28.3/lib/site_perl/5.28.3/darwin-thread-multi-2level",
+        "/Users/tsj/perl5/perlbrew/perls/perl-5.28.3/lib/site_perl/5.28.3",
+        "/Users/tsj/perl5/perlbrew/perls/perl-5.28.3/lib/5.28.3/darwin-thread-multi-2level",
+        "/Users/tsj/perl5/perlbrew/perls/perl-5.28.3/lib/5.28.3"
+    ],
+    "[latex]":{
         "editor.wordWrap": "on",
         "editor.renderWhitespace": "boundary",
+        "editor.quickSuggestions": false,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false,
+        "editor.tabSize": 4,
+        "editor.autoIndent": "advanced"
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.chktex.path": "/Library/TeX/texbin/chktex",
+    "latex-workshop.docker.image.latex": "",
+    "latex-workshop.kpsewhich.path": "/Library/TeX/texbin/kpsewhich",
+    "latex-workshop.latex.clean.command": "/Library/TeX/texbin/latexmk",
+    "latex-workshop.latexindent.path": "/Library/TeX/texbin/latexindent",
+    "latex-workshop.synctex.path": "/Library/TeX/texbin/synctex",
+    "latex-workshop.texcount.path": "/Library/TeX/texbin/texcount",
+    "latex-workshop.texdoc.path": "/Library/TeX/texbin/texdoc",
+    "latex-workshop.view.pdf.zoom": "page-fit",
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "julia.enableTelemetry": true,
+    "julia.symbolCacheDownload": true,
+    "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia",
+    "spellright.documentTypes": [
+        "markdown",
+        "restructuredtext",
+        "jsonc",
+        "latex",
+        "plaintext"
+    ],
+    "[markdown]":{
+        "files.trimTrailingWhitespace": false,
+        "editor.wordWrap": "on",
+        "editor.renderWhitespace": "boundary",
+        "editor.quickSuggestions": false,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false
     },
     "[restructuredtext]":{
+        "files.trimTrailingWhitespace": false,
         "editor.wordWrap": "on",
         "editor.renderWhitespace": "boundary",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 3,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": false,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false
     },
-    "window.zoomLevel": 0,
+    "[json]":{
+        "editor.wordWrap": "on",
+        "editor.wrappingIndent": "indent",
+        "editor.renderWhitespace": "boundary",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": false,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false
+    },
+    "[jsonc]":{
+        "editor.wordWrap": "on",
+        "editor.wrappingIndent": "indent",
+        "editor.renderWhitespace": "boundary",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": false,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false
+    },
+    "[yaml]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.quickSuggestions": false,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false
+    },
+    "[plaintext]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false
+    }
 }
