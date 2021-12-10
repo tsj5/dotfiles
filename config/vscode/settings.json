@@ -115,6 +115,11 @@
     "julia.enableTelemetry": true,
     "julia.symbolCacheDownload": true,
     "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia",
+    "[julia]":{
+        "files.trimTrailingWhitespace": false, // for now
+        "editor.rulers": [92], //JuliaFormat default
+        "editor.tabSize": 4
+    },
     "spellright.documentTypes": [
         "markdown",
         "restructuredtext",
@@ -176,5 +181,6 @@
         "editor.quickSuggestions": false,
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false
-    }
+    },
+    "diffEditor.ignoreTrimWhitespace": false
 }
