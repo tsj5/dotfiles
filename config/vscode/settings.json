@@ -117,8 +117,10 @@
     "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia",
     "[julia]":{
         "files.trimTrailingWhitespace": false, // for now
+        "diffEditor.ignoreTrimWhitespace": false,
         "editor.rulers": [92], //JuliaFormat default
-        "editor.tabSize": 4
+        "editor.tabSize": 4,
+        "editor.unicodeHighlight.ambiguousCharacters": false
     },
     "spellright.documentTypes": [
         "markdown",
@@ -181,6 +183,5 @@
         "editor.quickSuggestions": false,
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false
-    },
-    "diffEditor.ignoreTrimWhitespace": false
+    }
 }
