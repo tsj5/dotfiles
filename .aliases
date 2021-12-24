@@ -1,6 +1,10 @@
 # Set aliases for zsh and bash (only)
 # should only source this for interactive shells
 
+alias_if_exists () {
+	[[ -e "$2" ]] && alias "$1"="$2"
+}
+
 # git dotfile management
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias git-dotfile='/usr/bin/env git --git-dir="$HOME/._dotfile_repo/" --work-tree="$HOME"'
@@ -29,28 +33,21 @@ case "$_uname_val" in
 		fi
 
 		# Mathematica, if installed
-		_temp_path="/Applications/Mathematica.app/Contents/MacOS/MathKernel"
-		if [[ -e "$_temp_path" ]]; then
-			alias mathkernel="$_temp_path"
-		fi
+		alias_if_exists mathkernel "/Applications/Mathematica.app/Contents/MacOS/MathKernel"
 
 		# chrome
-		_temp_path="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-		if [[ -e "$_temp_path" ]]; then
-			alias google-chrome="$_temp_path"
-		fi
+		alias_if_exists "google-chrome" "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 		# VS Code
-		_temp_path="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-		if [[ -e "$_temp_path" ]]; then
-			alias vscode="$_temp_path"
-		fi
+		alias_if_exists "vscode" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 		# Julia from app
-		_temp_path="/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
-		if [[ -e "$_temp_path" ]]; then
-			alias julia="$_temp_path"
-		fi
+		alias_if_exists "julia" "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
+		alias_if_exists "julia17" "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
+		alias_if_exists "julia16" "/Applications/Julia-1.6.app/Contents/Resources/julia/bin/julia"
+
+		# Jupyterlab desktop
+		alias_if_exists jupyter_app "/Applications/JupyterLab.app/Contents/Resources/jlab_server/bin/jupyter"	
 
 		# macOS has no `md5sum`, so use `md5` as a fallback
 		command -v md5sum > /dev/null || alias md5sum="md5"
