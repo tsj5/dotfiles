@@ -3,7 +3,7 @@
 	email = tom.jackson314@gmail.com
 [core]
 	excludesfile = /Users/tsj/.gitignore_global
-	editor = nano --ignore --fill=72
+	editor = pico -r72
 [init]
 	defaultBranch = main
 [pull]
