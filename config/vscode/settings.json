@@ -94,7 +94,11 @@
     "[latex]":{
         "editor.wordWrap": "on",
         "editor.renderWhitespace": "boundary",
-        "editor.quickSuggestions": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false,
         "editor.tabSize": 4,
@@ -133,7 +137,11 @@
         "files.trimTrailingWhitespace": false,
         "editor.wordWrap": "on",
         "editor.renderWhitespace": "boundary",
-        "editor.quickSuggestions": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false
     },
@@ -144,7 +152,11 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 3,
         "editor.autoIndent": "advanced",
-        "editor.quickSuggestions": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false
     },
@@ -155,7 +167,11 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
         "editor.autoIndent": "advanced",
-        "editor.quickSuggestions": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false
     },
@@ -166,7 +182,11 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
         "editor.autoIndent": "advanced",
-        "editor.quickSuggestions": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false
     },
@@ -174,14 +194,39 @@
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
         "editor.autoIndent": "advanced",
-        "editor.quickSuggestions": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false
     },
     "[plaintext]": {
         "editor.wordWrap": "on",
-        "editor.quickSuggestions": false,
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        },
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": false
-    }
+    },
+    "julia.enableCrashReporter": true,
+    "outline.showConstants": false,
+    "outline.showEnumMembers": false,
+    "outline.showEnums": false,
+    "outline.showEvents": false,
+    "outline.showFields": false,
+    "outline.showBooleans": false,
+    "outline.showArrays": false,
+    "outline.showNull": false,
+    "outline.showNumbers": false,
+    "outline.showOperators": false,
+    "outline.showKeys": false,
+    "outline.showVariables": false,
+    "outline.showTypeParameters": false,
+    "outline.showStructs": false,
+    "outline.showStrings": false,
+    "outline.showProperties": false
 }
