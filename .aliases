@@ -43,7 +43,7 @@ case "$_uname_val" in
 
 		# Julia from app
 		alias_if_exists "julia" "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
-		alias_if_exists "julia18arm" "/Applications/Julia-1.8-arm.app/Contents/Resources/julia/bin/julia"
+		alias_if_exists "julia18a" "/Applications/Julia-1.8-arm.app/Contents/Resources/julia/bin/julia"
 		alias_if_exists "julia17" "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
 		alias_if_exists "julia16" "/Applications/Julia-1.6.app/Contents/Resources/julia/bin/julia"
 
