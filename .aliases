@@ -2,7 +2,7 @@
 # should only source this for interactive shells
 
 alias_if_exists () {
-	[[ -e "$2" ]] && alias "$1"="$2"
+	[[ -e "$2" ]] && alias "$1"=\'"$2"\'
 }
 
 # git dotfile management
@@ -39,16 +39,17 @@ case "$_uname_val" in
 		alias_if_exists "google-chrome" "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 		# VS Code
-		alias_if_exists "vscode" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+		alias_if_exists "vscode" "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"
 
 		# Julia from app
-		alias_if_exists "julia" "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
+		alias_if_exists "julia" "/Applications/Julia-latest.app/Contents/Resources/julia/bin/julia"
+		alias_if_exists "julia19" "/Applications/Julia-1.9.app/Contents/Resources/julia/bin/julia"
 		alias_if_exists "julia18a" "/Applications/Julia-1.8-arm.app/Contents/Resources/julia/bin/julia"
 		alias_if_exists "julia17" "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia"
 		alias_if_exists "julia16" "/Applications/Julia-1.6.app/Contents/Resources/julia/bin/julia"
 
 		# Jupyterlab desktop
-		alias_if_exists jupyter_app "/Applications/JupyterLab.app/Contents/Resources/jlab_server/bin/jupyter"	
+		alias_if_exists jupyter_app "/Applications/JupyterLab.app/Contents/Resources/jlab_server/bin/jupyter"
 
 		# macOS has no `md5sum`, so use `md5` as a fallback
 		command -v md5sum > /dev/null || alias md5sum="md5"
