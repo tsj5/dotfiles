@@ -1,5 +1,5 @@
 # https://conda-forge.org/docs/user/tipsandtricks.html
-channel_priority: strict
+channel_priority: flexible
 channels:
   - conda-forge
   - r
