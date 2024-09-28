@@ -99,7 +99,7 @@
             "strings": "off",
             "other": "off"
         },
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggestOnTriggerCharacters": false,
         "editor.tabSize": 4,
         "editor.autoIndent": "advanced"
@@ -118,7 +118,7 @@
     "latex-workshop.latex.autoBuild.run": "onSave",
     "julia.enableTelemetry": true,
     "julia.symbolCacheDownload": true,
-    "julia.executablePath": "/Applications/Julia-1.7.app/Contents/Resources/julia/bin/julia",
+    "julia.executablePath": "/Applications/Julia-latest.app/Contents/Resources/julia/bin/julia",
     "[julia]":{
         "files.trimTrailingWhitespace": false, // for now
         "diffEditor.ignoreTrimWhitespace": false,
@@ -142,7 +142,7 @@
             "strings": "off",
             "other": "off"
         },
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggestOnTriggerCharacters": false
     },
     "[restructuredtext]":{
@@ -157,7 +157,7 @@
             "strings": "off",
             "other": "off"
         },
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggestOnTriggerCharacters": false
     },
     "[json]":{
@@ -172,7 +172,7 @@
             "strings": "off",
             "other": "off"
         },
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggestOnTriggerCharacters": false
     },
     "[jsonc]":{
@@ -187,7 +187,7 @@
             "strings": "off",
             "other": "off"
         },
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggestOnTriggerCharacters": false
     },
     "[yaml]": {
@@ -199,7 +199,7 @@
             "strings": "off",
             "other": "off"
         },
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggestOnTriggerCharacters": false
     },
     "[plaintext]": {
@@ -209,7 +209,7 @@
             "strings": "off",
             "other": "off"
         },
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggestOnTriggerCharacters": false
     },
     "julia.enableCrashReporter": true,
@@ -228,5 +228,13 @@
     "outline.showTypeParameters": false,
     "outline.showStructs": false,
     "outline.showStrings": false,
-    "outline.showProperties": false
+    "outline.showProperties": false,
+    "julia.editor": "vscode",
+    "notebook.cellFocusIndicator": "border",
+    "notebook.consolidatedRunButton": true,
+    "notebook.showFoldingControls": "always",
+    "[json][jsonc][latex][markdown][plaintext][restructuredtext][yaml]": {
+        "editor.wordBasedSuggestions": "off"
+    },
+    "editor.accessibilitySupport": "off"
 }
